@@ -6,7 +6,7 @@ from sqlalchemy import select
 import uvicorn
 import asyncio
 import logging
-from datetime import date  # Добавлен импорт
+from datetime import date  
 
 from database import async_session_maker
 from posts.models import Posts
