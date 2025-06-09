@@ -6,11 +6,11 @@ from sqlalchemy import select
 import uvicorn
 import asyncio
 import logging
+from datetime import date  # Добавлен импорт
 
 from database import async_session_maker
 from posts.models import Posts
 from posts.router import router as posts_router
-from users.router import router as users_router
 from env import token
 
 logging.basicConfig(level=logging.INFO)
@@ -18,7 +18,6 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 app.include_router(posts_router)
-app.include_router(users_router)
 
 bot = Bot(token=token)
 dp = Dispatcher()
